@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping login</title>
+    <link rel="stylesheet" type="text/css" href="log.css">
+    <style>
+        /* Basic styling for the layout - assuming log.css provides more detailed styles */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Added a background color */
+        }
+        .right, .left {
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff; /* Added background for sections */
+            border-radius: 8px; /* Added rounded corners */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added a subtle shadow */
+        }
+        .right {
+            flex-basis: 400px; /* Give the login form section a base width */
+            text-align: center;
+        }
+        .left {
+            flex-basis: 300px; /* Give the image section a base width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Rounded corners for image */
+        }
+        .badge {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .login p {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .login input[type="text"],
+        .login input[type="password"] {
+            width: calc(100% - 22px); /* Adjust width for padding and border */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .login input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .login input[type="submit"]:hover {
+            background-color: #4cae4c; /* Darker green on hover */
+        }
+        .logbot a {
+            display: block; /* Make links block level for spacing */
+            margin-top: 10px;
+            color: #337ab7; /* Link color */
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .logbot a:hover {
+            text-decoration: underline;
+        }
+         /* Basic responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Stack elements vertically on smaller screens */
+            }
+            .right, .left {
+                width: 90%; /* Make sections take up more width */
+                margin: 10px auto; /* Center sections */
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Username validation: Allow only letters (uppercase and lowercase)
+            // The regex /^[a-zA-Z]*$/ matches a string containing only letters from start (^) to end ($).
+            const usernameRegex = /^[a-zA-Z]*$/;
+            if (!usernameRegex.test(username)) {
+                // Using a simple message box instead of alert
+                showMessageBox("Username must contain only letters.");
+                return false;
+            }
+
+            // Password validation: Allow only letters (uppercase and lowercase)
+            // The regex /^[a-zA-Z]*$/ matches a string containing only letters from start (^) to end ($).
+            // Note: This regex is the same as the username regex based on the user's request.
+            const passwordRegex = /^[a-zA-Z]*$/;
+            if (!passwordRegex.test(password)) {
+                 // Using a simple message box instead of alert
+                showMessageBox("Password must contain only letters.");
+                return false;
+            }
+
+            // If all validations pass, redirect to index.html
+            // This part remains unchanged from the original request.
+            window.location.href = "index.html";
+            return false; // Prevent default form submission
+        }
+
+        // Function to display a simple message box (replaces alert)
+        function showMessageBox(message) {
+            // You can implement a more sophisticated modal or message display here.
+            // For simplicity, we'll just use a basic confirmation box which is better than alert.
+            confirm(message);
+        }
+    </script>
+</head>
+<body>
+    <div class="right">
+        <div class="badge">
+            <p>Welcome back</p>
+        </div>
+        <div class="login">
+            <br>
+            <p>Login your account</p><br>
+            <form onsubmit="return validateForm();">
+                <input type="text" placeholder="Username" id="username"><br>
+                <input type="password" placeholder="Password" id="password"><br>
+                <br>
+                <input type="submit" value="Login" id="log">
+            </form>
+            <div class="logbot">
+                <a href="#">create account</a>
+                <br><br>
+                <a href="#"><u>Forgot password?</u></a>
+                <br><br>
+            </div>
+        </div>
+    </div>
+    <div class="left">
+        <img src="img/shopicon.jpg" alt="Shop Icon">
+    </div>
+</body>
+</html>

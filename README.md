@@ -1,2 +1,4 @@
-# Shopifylogin-Page
-This is Shopify Ecommernce based webpage where you can do any shoping at best price, The Following webpage is developed using Html, CSS and Java script.
+# Login Page
+A login page for e-commerce website:
+https://aadidreams.github.io/Login-Page/
+* Tech Stack: HTML | CSS
